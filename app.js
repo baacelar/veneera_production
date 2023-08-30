@@ -13,7 +13,7 @@ const app = express()
 
    //express handlebars 
 
-     app.engine ('handlebars', exphbs());  
+     app.engine ('handlebars', handlebars.engine({defaultLayout:'main'}));  
      app.set('view engine', 'handlebars');    
      
 
