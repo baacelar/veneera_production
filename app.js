@@ -1,8 +1,9 @@
 //loading modules
-const express = require ('express');   
-const bodyParser = require ('body-parser');  
+const express = require ('express') 
+const bodyParser = require ('body-parser') 
 const handlebars = require ('express-handlebars') 
 const app = express()  
+const admin = require ('./routes/admin') 
 
 //configurations 
   
@@ -16,13 +17,22 @@ const app = express()
      app.engine ('handlebars', handlebars.engine({defaultLayout:'main'}));  
      app.set('view engine', 'handlebars');    
      
+// routes 
+
+app.use ('./admin', admin)
 
 // server   
 
 const PORT = 8081 
 app.listen(PORT, ()=> { 
     console.log ('listening on port 8081')
-});    
+});   
+
+
+
+
+
+
 
 
      

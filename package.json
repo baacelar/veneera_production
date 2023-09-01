@@ -1,10 +1,12 @@
 {
   "name": "veneera_production",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "", 
+  "type": "commonjs",
+  "main": "app.js", 
+    "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -12,5 +14,8 @@
     "body-parser": "^1.20.2",
     "express": "^4.18.2",
     "express-handlebars": "^7.1.2"
-  }
+  } 
+
+ 
+
 }
