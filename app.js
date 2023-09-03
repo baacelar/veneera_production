@@ -4,7 +4,8 @@ const bodyParser = require ('body-parser')
 const handlebars = require ('express-handlebars') 
 const app = express()  
 const admin = require ('./routes/admin') 
-
+const router = require('./routes/admin')
+const path = require ('path')
 //configurations 
   
    //Body Parser 
@@ -15,15 +16,22 @@ const admin = require ('./routes/admin')
    //express handlebars 
 
      app.engine ('handlebars', handlebars.engine({defaultLayout:'main'}));  
-     app.set('view engine', 'handlebars');    
+     app.set('view engine', 'handlebars');   
+     
+   //public bootstrap 
+     
+     app.use(express.static(path.join(__dirname,"/public")))
      
 // routes 
 
-app.use ('./admin', admin)
+app.use ('./admin', admin) 
+app.use (router) 
+
 
 // server   
 
-const PORT = 8081 
+const PORT = 3000
+ 
 app.listen(PORT, ()=> { 
     console.log ('listening on port 8081')
 });   
